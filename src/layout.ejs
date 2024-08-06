@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= name %> Tutorial - Coderswiki
+    </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/styles/atom-one-dark.min.css"
+        integrity="sha512-Jk4AqjWsdSzSWCSuQTfYRIF84Rq/eV0G2+tu07byYwHcbTGfdmLrHjUSwvzp5HvbiqK4ibmNwdcG49Y5RGYPTg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        :root {
+            --background: #12181b;
+            --color: #f8f8f8;
+            --para: #d1d5db;
+            --color-s: #b2becd;
+            --color-s-s: #6c7983;
+            --primary: #12181B;
+            --secondary: #2A2E35;
+            --border: #2a2e35;
+            --accent: #f97316;
+            --accent-s: #eab308;
+        }
+
+        ::-webkit-scrollbar {
+            width: 5px;
+            height: 5px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--color-s-s);
+        }
+
+        body {
+            margin: 0;
+            background-color: var(--background);
+            color: var(--color);
+            font-family: "Poppins", sans-serif;
+            font-style: normal;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            padding: 16px 24px;
+        }
+
+        .business-logo {
+            height: 3rem;
+            width: 3rem;
+        }
+
+        .flex1 {
+            flex: 1;
+        }
+
+        .menu {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: inherit;
+            font-weight: 700;
+            font-size: 18px;
+            transition: color .2s ease-in-out;
+        }
+
+        .menu a:hover {
+            color: var(--accent);
+        }
+
+        /* CSS */
+        .button-79 {
+            transition: all .2s ease-in-out !important;
+            background-color: var(--color);
+            border-radius: .5rem;
+            box-sizing: border-box;
+            color: #111827 !important;
+            font-size: .875rem;
+            font-weight: 600;
+            line-height: 1.25rem;
+            padding: .75rem 1rem;
+            text-align: center;
+            text-decoration: none #D1D5DB solid;
+            text-decoration-thickness: auto;
+            cursor: pointer;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+        }
+
+        .button-79:hover {
+            background-color: var(--accent);
+            color: var(--color) !important;
+            -webkit-box-shadow: 0px 0px 114px 0px rgba(249, 117, 22, 0.54);
+            -moz-box-shadow: 0px 0px 114px 0px rgba(249, 117, 22, 0.54);
+            box-shadow: 0px 0px 114px 0px rgba(249, 117, 22, 0.54);
+        }
+
+        .menu-btn {
+            height: 30px;
+            width: 30px;
+            cursor: pointer;
+            transition: color .2s ease-in-out;
+        }
+
+        .menu-btn:hover {
+            color: var(--color-s);
+        }
+
+        .sidebar {
+            height: 100dvh;
+            width: 100dvw;
+            background-color: rgba(0, 0, 0, .1);
+            -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(2px);
+            position: fixed;
+            top: 0;
+            right: 0;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .sidebar .wrapper {
+            height: 100dvh;
+            overflow-y: scroll;
+            width: 300px;
+            background-color: var(--secondary);
+            padding: 16px 10px;
+            box-sizing: border-box;
+        }
+
+        .cross-btn {
+            cursor: pointer;
+            transition: color .2s ease-in-out;
+        }
+
+        .cross-btn:hover {
+            color: var(--color-s);
+        }
+
+        .wrapper .header {
+            display: flex;
+            align-items: center;
+        }
+
+        .wrapper .header span {
+            flex: 1;
+            text-align: center;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .icon {
+            height: 24px;
+            width: 24px;
+            transition: color .2s ease-in-out;
+            cursor: pointer;
+        }
+
+        .icon:hover {
+            color: var(--color-s);
+        }
+
+        .lessons {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .lessons a {
+            color: inherit;
+            text-decoration: none;
+            display: block;
+            padding: 5px;
+        }
+
+        .lessons a:hover {
+            background-color: var(--accent);
+        }
+
+        .lessons .active a {
+            background-color: var(--accent);
+        }
+
+        main {
+            padding: 0 2rem;
+            color: var(--para);
+        }
+
+        main h1 {
+            font-weight: 800;
+            text-transform: uppercase;
+            background-image: linear-gradient(to top, var(--tw-gradient-stops));
+            --tw-gradient-from: var(--accent);
+            --tw-gradient-to: rgb(249 115 22 / 0);
+            --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+            --tw-gradient-to: var(--accent-s);
+            background-clip: text;
+            color: #0000;
+            -webkit-background-clip: text;
+        }
+
+        main h2 {
+            color: var(--color-s);
+        }
+
+        main h3 {
+            color: var(--color-s-s);
+        }
+
+        pre {
+            background-color: var(--secondary);
+            padding: 16px 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            overflow-x: scroll;
+            max-width: 750px;
+        }
+
+        main code {
+            color: var(--color);
+        }
+
+        @media screen and (max-width: 767px) {
+            main {
+                padding: 0 14px;
+            }
+
+            pre {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <aside id="sidebar" class="sidebar" style="display: none;">
+        <div class="wrapper">
+            <div class="header">
+                <span>Python</span>
+                <svg class="icon" viewBox="0 0 15 15" xmlns="http://www.w3.org/2000/svg" onclick="toggleSidebar(false)">
+                    <path fill="currentColor"
+                        d="M2.64 1.27 7.5 6.13l4.84-4.84A.92.92 0 0 1 13 1a1 1 0 0 1 1 1 .9.9 0 0 1-.27.66L8.84 7.5l4.89 4.89A.9.9 0 0 1 14 13a1 1 0 0 1-1 1 .92.92 0 0 1-.69-.27L7.5 8.87l-4.85 4.85A.92.92 0 0 1 2 14a1 1 0 0 1-1-1 .9.9 0 0 1 .27-.66L6.16 7.5 1.27 2.61A.9.9 0 0 1 1 2a1 1 0 0 1 1-1c.24.003.47.1.64.27" />
+                </svg>
+            </div>
+            <ul class="lessons">
+                <% chapters.forEach(chapter=> { %>
+                    <li class="<%= chapter.url === currentUrl ? 'active' : '' %>">
+                        <a href="<%= chapter.url %>">
+                            <%= chapter.title %>
+                        </a>
+                    </li>
+                    <% }) %>
+            </ul>
+        </div>
+    </aside>
+    <nav>
+        <a href="/">
+            <img src="https://svgshare.com/i/191W.svg" alt="logo" class="business-logo">
+        </a>
+        <span class="flex1"></span>
+        <div class="menu">
+            <a href="/">courses</a>
+            <a href="/" class="button-79">ask doubt</a>
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 448 448" onclick="toggleSidebar(true)">
+                <path fill="currentColor" style="fill-opacity:1;stroke:none"
+                    d="M0 636.362h448v64H0zm0 160h448v64H0zm0 160h448v64H0z" transform="translate(0 -604.362)" />
+            </svg>
+        </div>
+    </nav>
+    <main>
+        <%- content %>
+    </main>
+    <script>
+        const sideBar = document.getElementById('sidebar');
+
+        // functions
+        toggleSidebar = (state) => {
+            sideBar.style.display = (state) ? 'flex' : 'none';
+        }
+    </script>
+</body>
+
+</html>
